@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<h1>JCriteria</h1>
+<h4>A simple Product Owner- / Programmer-oriented ATDD framework in Java.</h4>
+<p>
+Github: <a href="https://github.com/rwirdemann/JCriteria">https://github.com/rwirdemann/JCriteria</a>
+</p>
+<h2>Basic Idea</h2>
+<p>
+Current ATDD tools like JBehave or Cucumber force programmers to glue customer written tests to the system under development. Since customers are often overcharged writing given / when / then-style acceptance tests many teams end up writing both: JBehave scenarios and Java glue code.  
+</p>
+The basic idea behind JCriteria is to provide a simple tool that enforces communication between customers and development teams without forcing customers to program or programmers to write and maintain scenario files.
+JCriteria provides the simplest possible link between team and customer by ensuring two things:
+</p>
+<ol>
+<li>
+The customer specifies the business rules of a user story as a set of simple and concise accpetance criteria.
+</li>
+<li>
+The programmer writes a test for each critera in his the programming language and makes sure the business rule is met.
+</li>
+</ol>
+<h3>Example</h3>
+<h4>User Story: transfer_money.story</h4>
+<pre>
+Title: As a customer I want to transfer money from my account to a destination account.
+Criteria: Balance will be reduced by the amount of transferred money
+Criteria: Transfer must be legitimated by a valid TAN
+Criteria: Customer must be logged in
+</pre>
+<h4>Java-Class: TransferMoney.java</h4>
+<pre>
+@RunWith(JCriteriaRunner.class)
+public class TransferMoney {
+    @Criteria("Balance will be reduced by the amount of transferred money")
+    public void shouldReduceBalance() {
+	    ...
+    }	
+}
+</pre>
+<p>
+For more information contact: <a href="mailto:ralf@ralfwirdemann.de">Ralf Wirdemann</a>
+</p>
+</body>
+</html>
