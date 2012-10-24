@@ -20,6 +20,6 @@ public class Example {
 
     @Criteria("Run and fail")
     public void shouldRunAndFail() {
-        //Assert.fail("Criteria failed");
+        Assert.fail("Criteria failed");
     }
 }
